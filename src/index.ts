@@ -661,12 +661,11 @@ async function callSynterAPI(
     body: JSON.stringify(body),
   });
 
-  const data = await response.json();
+  const data = await response.json() as Record<string, unknown>;
 
   if (!response.ok) {
-    throw new Error(
-      data.error || data.message || `API error: ${response.status}`
-    );
+    const errorMsg = (data.error as string) || (data.message as string) || `API error: ${response.status}`;
+    throw new Error(errorMsg);
   }
 
   return data;
