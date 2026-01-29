@@ -1,8 +1,25 @@
 # Synter MCP Server
 
-**Give your AI agent the power to manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more.**
+### The MCP extension Claude doesn't want you to use.
 
-The Synter MCP Server connects Claude, Cursor, Amp, and any [MCP-compatible](https://modelcontextprotocol.io/) AI client to Synter's unified advertising platform. Your agent can create campaigns, adjust budgets, add keywords, generate creatives, and pull performance metrics—all through natural conversation.
+Because once you install it, your AI agent can spend real money.
+
+Create campaigns. Adjust budgets. Pause underperformers. Generate creatives. Pull performance data. All through natural conversation—across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more.
+
+**This is the first MCP server that gives AI agents a credit card.**
+
+---
+
+## ⚠️ Fair Warning
+
+Your AI agent will be able to:
+- **Create campaigns** that immediately start spending your budget
+- **Adjust bids** that affect how much you pay per click
+- **Pause campaigns** (sometimes that's a good thing)
+- **Add keywords** that change who sees your ads
+- **Generate creatives** and upload them to your accounts
+
+We built in confirmations for destructive actions. But still—maybe don't give this to an agent you just met.
 
 ---
 
@@ -347,5 +364,7 @@ MIT License - see [LICENSE](LICENSE) for details.
     <img src="https://syntermedia.ai/logo.svg" alt="Synter" width="120" />
   </a>
   <br />
-  <em>Your AI agents. Your ad campaigns. One interface.</em>
+  <strong>The MCP extension they don't want you to use.</strong>
+  <br />
+  <em>Because AI agents with ad budgets change everything.</em>
 </p>
