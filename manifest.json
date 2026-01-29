@@ -1,0 +1,49 @@
+{
+  "manifest_version": "0.2",
+  "name": "synter",
+  "version": "1.0.2",
+  "display_name": "Synter",
+  "description": "Manage ad campaigns across Google, Meta, LinkedIn, Reddit, TikTok and more with AI",
+  "author": {
+    "name": "Synter",
+    "email": "hello@syntermedia.ai",
+    "url": "https://syntermedia.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jshorwitz/synter-mcp-server"
+  },
+  "homepage": "https://syntermedia.ai",
+  "license": "MIT",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/index.js"],
+      "env": {
+        "SYNTER_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Synter API Key",
+      "description": "Your Synter API key from syntermedia.ai/developer",
+      "required": true,
+      "sensitive": true
+    }
+  },
+  "tools": [
+    {"name": "list_campaigns", "description": "List campaigns across ad platforms"},
+    {"name": "create_search_campaign", "description": "Create a Google Ads Search campaign"},
+    {"name": "create_display_campaign", "description": "Create a Display campaign"},
+    {"name": "create_pmax_campaign", "description": "Create a Performance Max campaign"},
+    {"name": "pause_campaign", "description": "Pause a campaign"},
+    {"name": "get_performance", "description": "Get campaign performance metrics"},
+    {"name": "generate_image", "description": "Generate ad creative images with AI"},
+    {"name": "generate_video", "description": "Generate video ads with AI"}
+  ]
+}

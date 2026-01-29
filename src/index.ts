@@ -33,6 +33,7 @@ const tools: Tool[] = [
     name: "list_campaigns",
     description:
       "List all campaigns across connected ad platforms. Returns campaign name, status, budget, and performance metrics.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -57,6 +58,7 @@ const tools: Tool[] = [
     name: "create_search_campaign",
     description:
       "Create a Google Ads Search campaign with keywords. Sets up campaign, ad group, keywords, and responsive search ads.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -100,6 +102,7 @@ const tools: Tool[] = [
     name: "create_display_campaign",
     description:
       "Create a Google Ads Display campaign with responsive display ads. Supports image uploads from URLs.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -150,6 +153,7 @@ const tools: Tool[] = [
     name: "create_pmax_campaign",
     description:
       "Create a Google Ads Performance Max campaign. Requires images, headlines, descriptions, and a business name.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -211,6 +215,7 @@ const tools: Tool[] = [
   {
     name: "pause_campaign",
     description: "Pause a campaign by ID. Works across all connected platforms.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -230,6 +235,7 @@ const tools: Tool[] = [
   {
     name: "update_campaign_budget",
     description: "Update the daily budget for a campaign.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -258,6 +264,7 @@ const tools: Tool[] = [
     name: "get_performance",
     description:
       "Get performance metrics (impressions, clicks, spend, conversions, ROAS) for campaigns.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -281,6 +288,7 @@ const tools: Tool[] = [
   {
     name: "get_daily_spend",
     description: "Get daily spend breakdown across all connected ad accounts.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -303,6 +311,7 @@ const tools: Tool[] = [
   {
     name: "add_keywords",
     description: "Add keywords to a Google Ads campaign or ad group.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -327,6 +336,7 @@ const tools: Tool[] = [
   {
     name: "add_negative_keywords",
     description: "Add negative keywords to block unwanted search terms.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -356,6 +366,7 @@ const tools: Tool[] = [
     name: "create_conversion",
     description:
       "Create a conversion action in Google Ads. Returns the conversion ID and label for GTM setup.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -379,6 +390,7 @@ const tools: Tool[] = [
   {
     name: "list_conversions",
     description: "List all conversion actions configured in Google Ads.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {},
@@ -388,6 +400,7 @@ const tools: Tool[] = [
     name: "diagnose_tracking",
     description:
       "Check if conversion tracking is properly set up on a website. Verifies gtag.js, GTM, and pixel installation.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -407,6 +420,7 @@ const tools: Tool[] = [
     name: "generate_image",
     description:
       "Generate an AI image for ad creatives using Imagen 4, Flux, or Stable Diffusion.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -436,6 +450,7 @@ const tools: Tool[] = [
     name: "generate_video",
     description:
       "Generate an AI video ad using Veo, Runway, or Luma. Great for YouTube and social ads.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -477,6 +492,7 @@ const tools: Tool[] = [
   {
     name: "create_meta_campaign",
     description: "Create a Meta (Facebook/Instagram) advertising campaign.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -504,6 +520,7 @@ const tools: Tool[] = [
   {
     name: "create_linkedin_campaign",
     description: "Create a LinkedIn Ads campaign for B2B advertising.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -547,6 +564,7 @@ const tools: Tool[] = [
   {
     name: "create_reddit_campaign",
     description: "Create a Reddit Ads campaign for community-based advertising.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -584,6 +602,7 @@ const tools: Tool[] = [
   {
     name: "list_ad_accounts",
     description: "List all connected ad accounts across platforms.",
+    annotations: { readOnlyHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {},
@@ -592,6 +611,7 @@ const tools: Tool[] = [
   {
     name: "upload_image",
     description: "Upload an image as an asset for use in ads.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -616,6 +636,7 @@ const tools: Tool[] = [
     name: "run_tool",
     description:
       "Run any Synter tool by name. Use this for advanced operations not covered by other tools. See docs.syntermedia.ai for full tool list.",
+    annotations: { destructiveHint: true },
     inputSchema: {
       type: "object" as const,
       properties: {
