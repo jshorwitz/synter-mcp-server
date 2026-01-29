@@ -1,0 +1,54 @@
+{
+  "name": "@syntermedia/mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for AI agents to manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more",
+  "author": "Synter Media <hello@syntermedia.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syntermedia/mcp-server.git"
+  },
+  "homepage": "https://syntermedia.ai/manual",
+  "bugs": {
+    "url": "https://github.com/syntermedia/mcp-server/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "advertising",
+    "google-ads",
+    "meta-ads",
+    "linkedin-ads",
+    "claude",
+    "cursor",
+    "amp"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "synter-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
