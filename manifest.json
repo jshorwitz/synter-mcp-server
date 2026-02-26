@@ -1,9 +1,9 @@
 {
   "manifest_version": "0.2",
   "name": "synter",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "display_name": "Synter",
-  "description": "Manage ad campaigns across Google, Meta, LinkedIn, Reddit, TikTok and more with AI",
+  "description": "Cross-platform advertising MCP server. Manage ad campaigns across Google, Meta, LinkedIn, Reddit, TikTok and more with AI agents.",
   "author": {
     "name": "Synter",
     "email": "hello@syntermedia.ai",
@@ -37,13 +37,26 @@
     }
   },
   "tools": [
-    {"name": "list_campaigns", "description": "List campaigns across ad platforms"},
-    {"name": "create_search_campaign", "description": "Create a Google Ads Search campaign"},
-    {"name": "create_display_campaign", "description": "Create a Display campaign"},
-    {"name": "create_pmax_campaign", "description": "Create a Performance Max campaign"},
-    {"name": "pause_campaign", "description": "Pause a campaign"},
-    {"name": "get_performance", "description": "Get campaign performance metrics"},
-    {"name": "generate_image", "description": "Generate ad creative images with AI"},
-    {"name": "generate_video", "description": "Generate video ads with AI"}
+    {"name": "list_campaigns", "description": "List campaigns across all connected ad platforms"},
+    {"name": "create_search_campaign", "description": "Create a Google Ads Search campaign with keywords and responsive search ads"},
+    {"name": "create_display_campaign", "description": "Create a Google Display campaign with responsive display ads"},
+    {"name": "create_pmax_campaign", "description": "Create a Performance Max campaign across all Google surfaces"},
+    {"name": "create_meta_campaign", "description": "Create a Facebook/Instagram campaign"},
+    {"name": "create_linkedin_campaign", "description": "Create a LinkedIn campaign for B2B advertising"},
+    {"name": "create_reddit_campaign", "description": "Create a Reddit campaign for community-based advertising"},
+    {"name": "pause_campaign", "description": "Pause any campaign across platforms"},
+    {"name": "update_campaign_budget", "description": "Change daily budget for a campaign"},
+    {"name": "get_performance", "description": "Get impressions, clicks, spend, conversions, ROAS metrics"},
+    {"name": "get_daily_spend", "description": "Daily spend breakdown by platform"},
+    {"name": "add_keywords", "description": "Add keywords to a campaign or ad group"},
+    {"name": "add_negative_keywords", "description": "Block unwanted search terms"},
+    {"name": "create_conversion", "description": "Set up a conversion action in Google Ads"},
+    {"name": "list_conversions", "description": "List existing conversion actions"},
+    {"name": "diagnose_tracking", "description": "Check if tracking is installed on a website"},
+    {"name": "generate_image", "description": "AI-generate ad images with Imagen 4, Flux, or SDXL"},
+    {"name": "generate_video", "description": "AI-generate video ads with Veo, Runway, or Luma"},
+    {"name": "upload_image", "description": "Upload images as ad assets"},
+    {"name": "list_ad_accounts", "description": "List all connected ad accounts"},
+    {"name": "run_tool", "description": "Run any of 140+ Synter tools directly"}
   ]
 }

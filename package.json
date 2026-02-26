@@ -1,7 +1,8 @@
 {
-  "name": "@syntermedia/mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server for AI agents to manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more",
+  "name": "@synterai/mcp-server",
+  "version": "1.0.6",
+  "mcpName": "io.github.jshorwitz/synter-ads",
+  "description": "Model Context Protocol (MCP) server for AI agents to manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more. Create campaigns, adjust budgets, generate creatives, and pull performance data through natural conversation.",
   "author": "Synter Media <hello@syntermedia.ai>",
   "license": "MIT",
   "repository": {
@@ -14,24 +15,39 @@
   },
   "keywords": [
     "mcp",
+    "mcp-server",
     "model-context-protocol",
     "ai-agents",
     "advertising",
+    "ad-management",
+    "cross-platform-ads",
     "google-ads",
     "meta-ads",
+    "facebook-ads",
     "linkedin-ads",
     "microsoft-ads",
     "reddit-ads",
     "tiktok-ads",
+    "campaign-management",
+    "ppc",
+    "ppc-automation",
+    "media-buying",
+    "marketing-automation",
+    "ad-creative",
     "claude",
     "cursor",
     "amp",
-    "ppc",
-    "marketing-automation"
+    "chatgpt"
   ],
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "bin": {
     "synter-mcp": "dist/index.js"
   },

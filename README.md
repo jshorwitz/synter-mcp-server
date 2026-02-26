@@ -1,12 +1,34 @@
 # Synter MCP Server
 
+[![npm version](https://img.shields.io/npm/v/@synterai/mcp-server.svg)](https://www.npmjs.com/package/@synterai/mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ### The MCP extension Claude doesn't want you to use.
 
 Because once you install it, your AI agent can spend real money.
 
 Create campaigns. Adjust budgets. Pause underperformers. Generate creatives. Pull performance data. All through natural conversation—across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, and more.
 
-**This is the first MCP server that gives AI agents a credit card.**
+**This is the first [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that gives AI agents a credit card.**
+
+---
+
+## Why Synter?
+
+Most advertising MCP servers are **read-only** and **single-platform**. Synter is the only cross-platform ad management MCP server with full read + write capabilities:
+
+| Feature | Synter | Google Ads MCP | Amazon Ads MCP | Others |
+|---------|--------|---------------|----------------|--------|
+| **Platforms** | 9+ (Google, Meta, LinkedIn, Microsoft, Reddit, TikTok, X, StackAdapt, TTD) | Google only | Amazon only | 1-2 |
+| **Create campaigns** | ✅ | ❌ Read-only | ✅ Amazon only | ❌ |
+| **Adjust budgets** | ✅ | ❌ | ✅ | ❌ |
+| **Pause campaigns** | ✅ | ❌ | ✅ | ❌ |
+| **AI creative generation** | ✅ (Imagen 4, Veo, Flux) | ❌ | ❌ | ❌ |
+| **Bid optimization** | ✅ | ❌ | ❌ | ❌ |
+| **AI Strategist** | ✅ | ❌ | ❌ | ❌ |
+| **Open source** | ✅ | ✅ | ❌ | Varies |
+
+One MCP server. Every ad platform. Read *and* write.
 
 ---
 
@@ -38,7 +60,7 @@ Sign up at [syntermedia.ai](https://syntermedia.ai) and create an API key in the
   "mcpServers": {
     "synter": {
       "command": "npx",
-      "args": ["@syntermedia/mcp-server"],
+      "args": ["@synterai/mcp-server"],
       "env": {
         "SYNTER_API_KEY": "syn_your_api_key_here"
       }
@@ -54,7 +76,7 @@ Sign up at [syntermedia.ai](https://syntermedia.ai) and create an API key in the
   "mcpServers": {
     "synter": {
       "command": "npx",
-      "args": ["@syntermedia/mcp-server"],
+      "args": ["@synterai/mcp-server"],
       "env": {
         "SYNTER_API_KEY": "syn_your_api_key_here"
       }
@@ -70,7 +92,7 @@ Sign up at [syntermedia.ai](https://syntermedia.ai) and create an API key in the
   "mcpServers": {
     "synter": {
       "command": "npx",
-      "args": ["@syntermedia/mcp-server"],
+      "args": ["@synterai/mcp-server"],
       "env": {
         "SYNTER_API_KEY": "syn_your_api_key_here"
       }
@@ -78,6 +100,15 @@ Sign up at [syntermedia.ai](https://syntermedia.ai) and create an API key in the
   }
 }
 ```
+
+**Remote (Streamable HTTP)** — For ChatGPT, n8n, Zapier, or any MCP client that supports HTTP transport:
+
+```
+URL: https://mcp.syntermedia.ai/mcp/
+Header: X-Synter-Key: syn_your_api_key_here
+```
+
+No local install needed. Works with any MCP client that supports [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) transport.
 
 ### 3. Start Using It
 
@@ -226,7 +257,7 @@ Before creating your first campaign, you'll need:
 > **You:** How are my campaigns doing this week?
 
 > **Agent:** Here's your performance for the last 7 days:
-> 
+>
 > | Campaign | Spend | Clicks | Conversions | ROAS |
 > |----------|-------|--------|-------------|------|
 > | Brand Search | $142 | 89 | 12 | 4.2x |
@@ -246,7 +277,7 @@ Before creating your first campaign, you'll need:
 > **You:** I need a display ad image for a marketing automation product. Dark theme, professional, 1200x628.
 
 > **Agent:** Generating your image with Imagen 4...
-> 
+>
 > Created: "Marketing automation dashboard with data visualization on dark background"
 > Asset saved and ready to use in your next Display campaign.
 
@@ -256,7 +287,7 @@ Before creating your first campaign, you'll need:
 
 To manage ads on each platform, you'll need to connect your accounts in Synter:
 
-1. Go to [syntermedia.ai/credentials](https://syntermedia.ai/credentials)
+1. Go to [syntermedia.ai/settings/credentials](https://syntermedia.ai/settings/credentials)
 2. Click "Connect" next to each platform
 3. Complete the OAuth flow
 4. Your agent can now manage that platform
@@ -269,9 +300,8 @@ To manage ads on each platform, you'll need to connect your accounts in Synter:
 - Reddit Ads ✅
 - TikTok Ads ✅
 - X (Twitter) Ads ✅
-- Amazon Ads ✅
+- StackAdapt ✅
 - The Trade Desk ✅
-- Amazon DSP ✅
 
 ---
 
@@ -305,14 +335,14 @@ See the full tool list at [docs.syntermedia.ai/tools](https://docs.syntermedia.a
 ```bash
 # Clone and install
 git clone https://github.com/jshorwitz/synter-mcp-server.git
-cd mcp-server
+cd synter-mcp-server
 npm install
 
 # Build
 npm run build
 
 # Run locally
-SYNTER_API_KEY=syn_xxx node dist/index.js
+SYNTER_API_KEY=syn_your_key_here node dist/index.js
 ```
 
 ---
@@ -332,7 +362,7 @@ Make sure your API key is in the `env` section of your MCP config. The key shoul
 ### "No ad accounts connected"
 
 You need to connect at least one ad platform:
-1. Go to [syntermedia.ai/credentials](https://syntermedia.ai/credentials)
+1. Go to [syntermedia.ai/settings/credentials](https://syntermedia.ai/settings/credentials)
 2. Click "Connect" next to Google Ads (or another platform)
 3. Complete the OAuth authorization
 
@@ -349,6 +379,7 @@ You need to connect at least one ad platform:
 - **Synter Manual:** [syntermedia.ai/manual](https://syntermedia.ai/manual)
 - **API Documentation:** [docs.syntermedia.ai](https://docs.syntermedia.ai)
 - **Tool Reference:** [docs.syntermedia.ai/tools](https://docs.syntermedia.ai/tools)
+- **MCP Server Comparison:** [syntermedia.ai/blog/best-ad-platform-mcp-servers](https://syntermedia.ai/blog/best-ad-platform-mcp-servers)
 - **Support:** [hello@syntermedia.ai](mailto:hello@syntermedia.ai)
 
 ---

@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-1. **npm account** with access to publish to `@syntermedia` organization
-2. **Anthropic Directory submission** form access
+1. **npm account** with access to publish to `@synterai` organization
+2. **GitHub access** to push to jshorwitz/synter-mcp-server
 
 ---
 
@@ -12,24 +12,23 @@
 ### First-time Setup
 
 ```bash
-# 1. Create the @syntermedia organization (if not exists)
-# Go to: https://www.npmjs.com/org/create
-# Organization name: syntermedia
-
-# 2. Login to npm
+# 1. Login to npm
 npm login
 # Enter your npm username, password, and email
 # If you have 2FA, enter the code when prompted
 
-# 3. Verify you're logged in
+# 2. Verify you're logged in
 npm whoami
 # Should output your npm username
+
+# 3. Verify org access
+npm org ls synterai
 ```
 
 ### Publish the Package
 
 ```bash
-cd packages/mcp-server
+cd synter-mcp-server
 
 # Build and publish
 npm run build
@@ -43,73 +42,39 @@ npm run publish:npm
 
 ```bash
 # Check the package is live
-npm view @syntermedia/mcp-server
+npm view @synterai/mcp-server
 
 # Test installation
-npx @syntermedia/mcp-server
+npx @synterai/mcp-server
 # Should fail with "SYNTER_API_KEY not set" (expected)
 ```
 
 ---
 
-## Step 2: Submit to Anthropic Connectors Directory
+## Step 2: Submit to MCP Registries
 
-### Submission Form
+### Official MCP Registry (registry.modelcontextprotocol.io)
 
-Go to: https://docs.google.com/forms/d/e/1FAIpQLScIL_8v3bvSNhKOT5Xj0Nt3oCv_lbpbmBPTRGNT1QqVj5RbKw/viewform
+The `server.json` file is already formatted for the official registry. To submit:
 
-### Required Information
+1. Fork https://github.com/modelcontextprotocol/registry
+2. Add `servers/synter-ads/server.json` (copy from this repo)
+3. Open a PR with title: "Add Synter Ads MCP Server"
 
-| Field | Value |
-|-------|-------|
-| **MCP Server Name** | Synter |
-| **npm Package** | `@syntermedia/mcp-server` |
-| **Description** | Manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok with AI. Create campaigns, adjust budgets, add keywords, generate creatives, and pull performance metrics. |
-| **Author/Org** | Synter Media |
-| **GitHub URL** | https://github.com/jshorwitz/synter-mcp-server |
-| **Documentation** | https://syntermedia.ai/manual |
-| **Categories** | Marketing, Advertising, Analytics |
+### Docker MCP Catalog
 
-### Tool List for Submission
+1. Go to https://github.com/docker/mcp-registry
+2. Submit via their contribution process
+3. Include the streamable-http remote URL: `https://mcp.syntermedia.ai/mcp/`
 
-```
-Campaign Management:
-- list_campaigns - List campaigns across all connected platforms
-- create_search_campaign - Create Google Search campaigns with keywords
-- create_display_campaign - Create Google Display campaigns with images
-- create_pmax_campaign - Create Performance Max campaigns
-- create_meta_campaign - Create Facebook/Instagram campaigns
-- create_linkedin_campaign - Create LinkedIn B2B campaigns
-- create_reddit_campaign - Create Reddit community campaigns
-- pause_campaign - Pause any campaign
-- update_campaign_budget - Adjust daily budgets
+### Other Directories
 
-Performance & Analytics:
-- get_performance - Get impressions, clicks, spend, conversions, ROAS
-- get_daily_spend - Daily spend breakdown by platform
-
-Keywords & Targeting:
-- add_keywords - Add keywords to campaigns
-- add_negative_keywords - Block unwanted search terms
-
-Conversion Tracking:
-- create_conversion - Set up conversion actions
-- list_conversions - List existing conversions
-- diagnose_tracking - Check if tracking is installed
-
-Creative Generation:
-- generate_image - AI-generate ad images (Imagen 4, Flux, SDXL)
-- generate_video - AI-generate video ads (Veo, Runway, Luma)
-- upload_image - Upload images as ad assets
-
-Utility:
-- list_ad_accounts - List all connected ad accounts
-- run_tool - Run any of 140+ Synter tools directly
-```
-
-### Manifest for Directory
-
-The manifest is already configured in `manifest.json` following Anthropic's v0.2 format.
+| Directory | URL | Status |
+|-----------|-----|--------|
+| PulseMCP | https://pulsemcp.com | Submit via site |
+| Smithery.ai | https://smithery.ai | Submit via site |
+| MCPCatalog.io | https://mcpcatalog.io | Submit via site |
+| OpenTools | https://opentools.com | Submit via site |
 
 ---
 
@@ -132,8 +97,9 @@ Use the `recording-demo-videos` skill to create a video showing:
 
 ### Announce
 
-- [ ] Post on X/Twitter
-- [ ] Post on LinkedIn
+- [ ] Post on X/Twitter (see SOCIAL_COPY.md)
+- [ ] Post on LinkedIn (see SOCIAL_COPY.md)
+- [ ] Submit to Hacker News
 - [ ] Add to Product Hunt (if applicable)
 
 ---
@@ -148,7 +114,7 @@ Use semantic versioning:
 To release a new version:
 
 ```bash
-cd packages/mcp-server
+cd synter-mcp-server
 
 # Update version
 npm version patch  # or minor, major
@@ -166,8 +132,8 @@ git push --tags
 
 ### "npm ERR! 403 Forbidden"
 
-You don't have permission to publish to @syntermedia. Either:
-1. Create the organization at npmjs.com/org/create
+You don't have permission to publish to @synterai. Either:
+1. Check you're logged into the correct npm account
 2. Or ask an admin to add you to the organization
 
 ### "npm ERR! 404 Not Found" after publish

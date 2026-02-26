@@ -1,0 +1,45 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.jshorwitz/synter-ads",
+  "description": "Cross-platform advertising MCP server. Manage ad campaigns across Google, Meta, LinkedIn, Microsoft, Reddit, TikTok via AI. Create campaigns, adjust budgets, pause underperformers, generate creatives, and pull performance data.",
+  "status": "active",
+  "repository": {
+    "url": "https://github.com/jshorwitz/synter-mcp-server",
+    "source": "github"
+  },
+  "version": "1.0.6",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@synterai/mcp-server",
+      "version": "1.0.6",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "SYNTER_API_KEY",
+          "description": "Your Synter API key. Get one at https://syntermedia.ai/developer",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.syntermedia.ai/mcp/",
+      "headers": [
+        {
+          "name": "X-Synter-Key",
+          "description": "Your Synter API key. Get one at https://syntermedia.ai/developer",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
